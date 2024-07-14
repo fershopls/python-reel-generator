@@ -24,6 +24,10 @@ def videos_split(dir_from, dir_to):
             # split each video in 10 or less seconds
             split_duration = 3.5
             split_count = int(file_video_duration / split_duration)
+            
+            if split_count == 0:
+                continue
+
             split_duration = round(file_video_duration / split_count, 2)
             
             # split video

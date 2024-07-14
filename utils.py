@@ -12,7 +12,7 @@ def pop_lines_from_json_file(file):
 
     # 3. dump lines
     with open(file, 'w') as f:
-        json.dump(lines, f)
+        json.dump(lines, f, indent=4)
 
     # 4. return line
     return line
