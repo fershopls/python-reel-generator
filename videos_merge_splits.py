@@ -27,7 +27,8 @@ def videos_merge_splits(directory_videos, output_file, duration):
         print(f"Combine {output_file}")
 
 def get_random_video_seek_time(file_path, duration):
-    return random.uniform(0, get_video_duration(file_path) - duration)
+    seek_time = random.uniform(0, get_video_duration(file_path) - duration)
+    return str(seek_time)
 
 def get_video_duration(file_path):
     ffmpeg_command = f'ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "{file_path}"'
