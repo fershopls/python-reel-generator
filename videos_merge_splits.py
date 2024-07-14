@@ -27,7 +27,9 @@ def videos_merge_splits(directory_videos, output_file, duration):
         print(f"Combine {output_file}")
 
 def get_random_video_seek_time(file_path, duration):
+    import math
     seek_time = random.uniform(0, get_video_duration(file_path) - duration)
+    seek_time = math.floor(seek_time * 100) / 100
     return str(seek_time)
 
 def get_video_duration(file_path):

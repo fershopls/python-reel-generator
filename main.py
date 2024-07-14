@@ -13,6 +13,11 @@ voice = "en_us_001"
 import tiktokvoice
 tiktokvoice.tts(line, voice, "voice.mp3", play_sound=False)
 
+import os
+if not os.path.exists("voice.mp3"):
+    print("no audio file found")
+    exit()
+
 # create video audio duration
 from utils import get_audio_duration
 from video_creator import create_video
