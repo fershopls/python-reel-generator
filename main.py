@@ -36,7 +36,7 @@ prune_files.append("video.mp4")
 
 # put audio over video
 from utils import cmd
-cmd(f'ffmpeg -i voice.mp3 -i video.mp4 -map 0:0 -map 1:0 -shortest -c:v copy -c:a aac -strict experimental output.mp4')
+cmd(f'ffmpeg -y -i voice.mp3 -i video.mp4 -map 0:0 -map 1:0 -shortest -c:v copy -c:a aac -strict experimental output.mp4')
 prune_files.append("output.mp4")
 
 # create text caption
@@ -51,10 +51,10 @@ png_create_text(
     font_size=video_height / 30,
     output_file="caption.png",
 )
+prune_files.append("caption.png")
 
 # put text caption over video
-cmd(f'ffmpeg -i video.mp4 -i caption.png -filter_complex "[0:v][1:v]overlay=shortest=1:x=W-w-100:y=H-h-100" -c:a aac -strict experimental output2.mp4')
-prune_files.append("output2.mp4")
+cmd(f'ffmpeg -y -i output.mp4 -i caption.png -filter_complex "[0:v][1:v]overlay[out]" -map "[out]" -map 0:a -c:a libmp3lame -c:v libx264 -crf 23 -preset veryfast output2.mp4')
 
 # remove cache files
 import os

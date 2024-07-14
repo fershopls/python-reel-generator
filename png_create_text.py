@@ -47,7 +47,7 @@ def png_create_text(
         position[1] += line_height
 
     # save image
-    image.save("text.png")
+    image.save(output_file)
 
 def get_lines_wrap(text, font, max_width):
     text_lines = text.split('\n')
