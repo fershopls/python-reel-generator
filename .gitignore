@@ -1,0 +1,15 @@
+__pycache__/
+.idea/
+.vscode/
+venv/
+*.mp3
+*.mp4
+*.json
+*.txt
+*.wav
+*.mp4
+*.mp3
+*.mp4
+*.mp3
+*.avi
+*.mp4
