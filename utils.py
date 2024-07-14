@@ -21,3 +21,13 @@ def get_audio_duration(file):
     import subprocess
     output = subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', file])
     return float(output)
+
+def get_video_size(file):
+    import subprocess
+    output = subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'stream=width,height', '-of', 'default=noprint_wrappers=1:nokey=1', file])
+    width, height = output.split(',')
+    return int(width), int(height)
+
+def cmd(cmd):
+    import os
+    os.system(cmd)
