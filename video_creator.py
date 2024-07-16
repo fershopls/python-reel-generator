@@ -3,7 +3,7 @@ from videos_reencode import videos_reencode
 
 DIR_RAW = r"D:\OF\clip-maker\videos_raw"
 DIR_REENCODED = r"D:\OF\clip-maker\videos_encoded"
-DIR_SPLITS = r"D:\OF\clip-maker\splits"
+DIR_SPLITS = r"D:\OF\clip-maker\videos_splits"
 
 def create_video(output, duration):
     videos_reencode(DIR_RAW, DIR_REENCODED)
