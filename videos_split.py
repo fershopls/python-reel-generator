@@ -37,7 +37,9 @@ def videos_split(dir_from, dir_to):
                 if split_end > file_video_duration:
                     split_end = file_video_duration
 
-                split_file_name = f"{file_name}_{split_start}-{split_end}.mp4"
+                _start = round(split_start, 2)
+                _end = round(split_end, 2)
+                split_file_name = f"{file_name}_{_start}-{_end}.mp4"
                 split_file_path = os.path.join(dir_to, split_file_name)
 
                 if not os.path.exists(split_file_path):
