@@ -41,7 +41,7 @@ def videos_split(dir_from, dir_to):
                 split_file_path = os.path.join(dir_to, split_file_name)
 
                 if not os.path.exists(split_file_path):
-                    ffmpeg_command = f'ffmpeg -i "{file_path}" -ss {split_start} -t {split_duration} -c:a libmp3lame -q:a 4 -c:v libx264 -crf 22 -preset veryfast "{split_file_path}"'
+                    ffmpeg_command = f'ffmpeg -i "{file_path}" -ss {split_start} -t {split_duration} -c:a aac -c:v libx264 -preset slow "{split_file_path}"'
                     os.system(ffmpeg_command)
                     print(f"Split {split_file_name}")
 

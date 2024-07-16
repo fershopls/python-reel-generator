@@ -37,7 +37,7 @@ while True:
 
     # put audio over video
     from utils import cmd
-    cmd(f'ffmpeg -y -i voice.mp3 -i video.mp4 -map 0:0 -map 1:0 -shortest -c:v copy -c:a aac -strict experimental output.mp4')
+    cmd(f'ffmpeg -y -i voice.mp3 -i video.mp4 -map 0:0 -map 1:0 -shortest -c:v libx264 -c:a aac -strict experimental output.mp4')
     prune_files.append("output.mp4")
 
     # create text caption

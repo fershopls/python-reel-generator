@@ -21,7 +21,7 @@ def videos_merge_splits(directory_videos, output_file, duration):
         #ffmpeg_inputs = " ".join([f'-i "{file}"' for file in files_to_combine])
         # use -ss and -t
         ffmpeg_inputs = " ".join([f'-ss '+get_random_video_seek_time(file, duration_of_each_video)+f' -t {duration_of_each_video} -i "{file}"' for file in files_to_combine])
-        ffmpeg_command = f'ffmpeg {ffmpeg_inputs} -filter_complex "concat=n={num_files_to_combine}:v=1:a=1" -c:a libmp3lame -q:a 4 -c:v libx264 -crf 22 -preset veryfast "{output_file}"'
+        ffmpeg_command = f'ffmpeg {ffmpeg_inputs} -filter_complex "concat=n={num_files_to_combine}:v=1:a=1" -c:a aac -c:v libx264 -preset slow "{output_file}"'
         print(ffmpeg_command)
         os.system(ffmpeg_command)
         print(f"Combine {output_file}")
