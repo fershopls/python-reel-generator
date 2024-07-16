@@ -55,7 +55,7 @@ while True:
     prune_files.append("caption.png")
 
     # put text caption over video
-    cmd(f'ffmpeg -y -i output.mp4 -i caption.png -filter_complex "[0:v][1:v]overlay[out]" -map "[out]" -map 0:a -c:a libmp3lame -c:v libx264 -crf 23 -preset veryfast output2.mp4')
+    cmd(f'ffmpeg -y -i output.mp4 -i caption.png -filter_complex "[0:v][1:v]overlay[out]" -map "[out]" -map 0:a -c:v libx264 -c:a aac -preset slow output2.mp4')
 
     # remove cache files
     import os
